@@ -8,5 +8,15 @@ export function signToken(payload: object, expiresIn: string = "1h") {
 }
 
 export function verifyToken(token: string): string | JwtPayload | null {
-    return jwt.verify(token, SECRET as jwt.Secret);
+
+  let decoded = null;
+
+  try{
+    decoded = jwt.verify(token, SECRET as jwt.Secret);
+  } catch (error) {
+  
+    console.error(error);
+  }
+
+  return decoded;
 }
