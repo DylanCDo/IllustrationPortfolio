@@ -14,7 +14,6 @@ export function verifyToken(token: string): string | JwtPayload | null {
   try{
     decoded = jwt.verify(token, SECRET as jwt.Secret);
   } catch (error) {
-  
     console.error(error);
   }
 
